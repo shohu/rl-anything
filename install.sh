@@ -3,13 +3,13 @@ set -euo pipefail
 
 # rl-anything plugin installer / updater
 # Usage:
-#   curl -sL https://raw.githubusercontent.com/shohu/rl-anything/main/install.sh | bash
+#   curl -sL https://raw.githubusercontent.com/min-sys/rl-anything/main/install.sh | bash
 #   ./install.sh
 
 MARKETPLACE_NAME="rl-anything"
 PLUGIN_NAME="rl-anything"
 PLUGIN_KEY="${PLUGIN_NAME}@${MARKETPLACE_NAME}"
-REPO_URL="https://github.com/shohu/rl-anything.git"
+REPO_URL="https://github.com/min-sys/rl-anything.git"
 
 CLAUDE_DIR="$HOME/.claude"
 PLUGINS_DIR="$CLAUDE_DIR/plugins"

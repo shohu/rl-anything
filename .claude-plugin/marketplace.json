@@ -3,7 +3,7 @@
   "name": "rl-anything",
   "description": "Genetic algorithm-based skill and rule optimization plugin for Claude Code",
   "owner": {
-    "name": "shohu"
+    "name": "min-sys"
   },
   "plugins": [
     {
@@ -12,10 +12,10 @@
       "description": "Automatic skill/rule optimization using genetic algorithms with fitness evaluation and human approval workflow",
       "version": "0.8.0",
       "author": {
-        "name": "shohu"
+        "name": "min-sys"
       },
-      "homepage": "https://github.com/shohu/rl-anything",
-      "repository": "https://github.com/shohu/rl-anything",
+      "homepage": "https://github.com/min-sys/rl-anything",
+      "repository": "https://github.com/min-sys/rl-anything",
       "license": "MIT",
       "keywords": ["optimization", "genetic-algorithm", "skill-evolution", "rl-loop", "claude-code"],
       "category": "development"

@@ -507,7 +507,7 @@ class TestFindMemoryUpdateCandidates:
         memory_entries = [{
             "tier": "auto-memory",
             "path": "/memory/MEMORY.md",
-            "content": "## Git Config\n\n- shohu account for push\n",
+            "content": "## Git Config\n\n- matsukaze-minden account for push\n",
         }]
         with mock.patch("reflect.read_all_memory_entries", return_value=memory_entries):
             result = reflect.find_memory_update_candidates(corrections)
