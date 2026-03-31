@@ -183,7 +183,11 @@ def collect_handover_data(project_dir: str) -> dict:
     if checkpoint and checkpoint.get("corrections_snapshot"):
         corrections = checkpoint["corrections_snapshot"][-10:]
     else:
-        corrections = _load_session_records(DATA_DIR / "corrections.jsonl")[-10:]
+        all_corrections = _load_session_records(DATA_DIR / "corrections.jsonl")
+        corrections = [
+            c for c in all_corrections
+            if c.get("project_path") == project_dir
+        ][-10:]
 
     # usage.jsonl — 当セッションのスキル使用
     usage_records = _load_session_records(DATA_DIR / "usage.jsonl")
@@ -199,6 +203,7 @@ def collect_handover_data(project_dir: str) -> dict:
         "work_context": work_context,
         "skills_used": skills_used,
         "corrections": corrections,
+        "is_github": is_github_repo(cwd=project_dir),
     }
 
 
