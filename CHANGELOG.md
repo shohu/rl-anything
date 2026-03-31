@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.19.1] - 2026-03-31
 
 ### Fixed
 - **handover corrections フィルタ**: `collect_handover_data()` が corrections.jsonl から読み込む際に `project_path` でフィルタリングし、別プロジェクトのデータ混入を防止 (#53)
