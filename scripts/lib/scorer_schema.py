@@ -60,6 +60,13 @@ def validate_scorer_output(raw: dict) -> ScorerOutput:
     Raises:
         ScorerValidationError: 必須キー欠損・型変換失敗・範囲外の場合
     """
+    if not isinstance(raw, dict):
+        raise ScorerValidationError("raw は dict でなければなりません", raw={})
+    improvements_raw = raw.get("improvements", [])
+    if isinstance(improvements_raw, str):
+        raise ScorerValidationError(
+            "improvements は list でなければなりません（文字列は不可）", raw=raw
+        )
     try:
         return ScorerOutput(
             technical=AxisResult(
@@ -76,8 +83,12 @@ def validate_scorer_output(raw: dict) -> ScorerOutput:
             ),
             integrated_score=float(raw["integrated_score"]),
             summary=str(raw["summary"]),
-            improvements=list(raw.get("improvements", [])),
+            improvements=list(improvements_raw),
         )
+    except ScorerValidationError:
+        # AxisResult.__post_init__ や ScorerOutput.__post_init__ が raise する
+        # ScorerValidationError を、下の ValueError ハンドラで誤捕捉しないよう再 raise
+        raise
     except KeyError as e:
         raise ScorerValidationError(f"必須キーが欠損: {e}", raw=raw) from e
     except (TypeError, ValueError) as e:

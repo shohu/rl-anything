@@ -218,3 +218,35 @@ class TestValidateScorerOutputImprovements:
         raw = _make_raw(improvements=["改善A", "改善B", "改善C"])
         result = validate_scorer_output(raw)
         assert len(result.improvements) == 3
+
+    def test_improvements文字列はエラー(self):
+        """improvements が文字列のとき charlist に化けず ScorerValidationError を raise する。"""
+        raw = _make_raw(include_improvements=False)
+        raw["improvements"] = "改善点A"  # list でなく str
+        with pytest.raises(ScorerValidationError):
+            validate_scorer_output(raw)
+
+
+# ─────────────────────────────────────────────────
+# raw 入力ガード
+# ─────────────────────────────────────────────────
+
+class TestValidateScorerOutputInputGuard:
+    """raw が dict でない場合 / AxisResult の範囲外エラーが正しく伝播する。"""
+
+    def test_rawがNoneのときScorerValidationError(self):
+        """raw=None を渡した場合、AttributeError でなく ScorerValidationError を raise。"""
+        with pytest.raises(ScorerValidationError):
+            validate_scorer_output(None)  # type: ignore
+
+    def test_rawがリストのときScorerValidationError(self):
+        with pytest.raises(ScorerValidationError):
+            validate_scorer_output([1, 2, 3])  # type: ignore
+
+    def test_AxisResult範囲外エラーが元メッセージを保持(self):
+        """ScorerValidationError が except ValueError に飲み込まれず、
+        元の '範囲 [0, 1] 外です' メッセージが保持されることを確認。"""
+        raw = _make_raw(technical_total=1.5)
+        with pytest.raises(ScorerValidationError) as exc_info:
+            validate_scorer_output(raw)
+        assert "範囲" in str(exc_info.value) or "1.5" in str(exc_info.value)
