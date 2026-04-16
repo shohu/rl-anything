@@ -5,7 +5,6 @@ rl-scorer が返すべき JSON 構造を型付きで表現し、
 """
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Any
 
 
 class ScorerValidationError(ValueError):
