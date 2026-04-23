@@ -1,6 +1,6 @@
 # フェーズドアプローチ — 環境全体 Fitness 評価の実装計画
 
-> Source: [GitHub Issue #15](https://github.com/min-sys/rl-anything/issues/15) Part 5, 7
+> Source: [GitHub Issue #15](https://github.com/shohu/rl-anything/issues/15) Part 5, 7
 
 
 ---

@@ -23,4 +23,4 @@ Related: #21
 - 新規ファイル: `scripts/rl/fitness/coherence.py`, テスト
 - 変更ファイル: `skills/audit/SKILL.md`（`--coherence-score` オプション追加）, audit 実行スクリプト
 - 依存: 既存の `audit.collect_issues()`, `skill_quality.py`, `hardcoded_detector.py`, `skill_triggers.py`, `reflect_utils.py`
-- Issue: [#15](https://github.com/min-sys/rl-anything/issues/15)
+- Issue: [#15](https://github.com/shohu/rl-anything/issues/15)

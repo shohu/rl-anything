@@ -1,6 +1,6 @@
 # Claude Code 環境全体の Fitness 評価 — 調査結果と10パターン提案
 
-> Source: [GitHub Issue #15](https://github.com/min-sys/rl-anything/issues/15)
+> Source: [GitHub Issue #15](https://github.com/shohu/rl-anything/issues/15)
 
 ---
 
