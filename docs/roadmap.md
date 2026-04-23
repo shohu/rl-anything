@@ -78,7 +78,7 @@ Phase 0        Phase 1        Phase 2        Phase 3
  調停+診断    反省+免疫+痕跡  調停+パス     層間+集中+市場
 ```
 
-### Gap 1: 環境全体の Fitness 評価 ([#15](https://github.com/min-sys/rl-anything/issues/15))
+### Gap 1: 環境全体の Fitness 評価 ([#15](https://github.com/shohu/rl-anything/issues/15))
 
 「環境の品質をどう測るか？」— 10パターン (P1-P10) のフェーズドアプローチ。
 
@@ -91,7 +91,7 @@ Phase 0        Phase 1        Phase 2        Phase 3
 
 詳細は [docs/fitness/](./fitness/) を参照。
 
-### Gap 2: 環境全体の進化ループ ([#16](https://github.com/min-sys/rl-anything/issues/16))
+### Gap 2: 環境全体の進化ループ ([#16](https://github.com/shohu/rl-anything/issues/16))
 
 「環境をどう改善するか？」— Pattern B（Observe → Diagnose → Compile）ベースの段階的実装。
 
@@ -105,7 +105,7 @@ Phase 0        Phase 1        Phase 2        Phase 3
 
 詳細は [docs/evolution/](./evolution/) を参照。
 
-### Gap 3: 大規模スキル最適化 ([#13](https://github.com/min-sys/rl-anything/issues/13))
+### Gap 3: 大規模スキル最適化 ([#13](https://github.com/shohu/rl-anything/issues/13))
 
 #19 により GA 廃止、DirectPatchOptimizer に置換済み。LLM 1パスパッチにより MPO コール数問題は解消。
 残課題: long skill での survival rate 改善（pitfall patterns + regression gate 強化で対応中）。

@@ -1,6 +1,6 @@
 # 10の進化パターン — 詳細設計
 
-> Source: [GitHub Issue #16](https://github.com/min-sys/rl-anything/issues/16) Parts 3, 4, 6
+> Source: [GitHub Issue #16](https://github.com/shohu/rl-anything/issues/16) Parts 3, 4, 6
 
 調査知見を統合し、6レイヤーの進化ループを閉じる10パターンを提案する。E1-E5 は AI/ML・制御理論・組織学習寄り、E6-E10 は群知能・コンパイラ理論・統計学・経済学・サイバネティクス寄り。
 

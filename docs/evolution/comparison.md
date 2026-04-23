@@ -1,6 +1,6 @@
 # 比較表・横断原則・統合提案
 
-> Source: [GitHub Issue #16](https://github.com/min-sys/rl-anything/issues/16) Parts 5, 7
+> Source: [GitHub Issue #16](https://github.com/shohu/rl-anything/issues/16) Parts 5, 7
 
 ## 10パターンの比較
 

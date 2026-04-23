@@ -1,6 +1,6 @@
 # 環境全体 Fitness 評価 — 実装計画
 
-> Issue: [#15](https://github.com/min-sys/rl-anything/issues/15)
+> Issue: [#15](https://github.com/shohu/rl-anything/issues/15)
 > 関連: [evaluation-patterns.md](evaluation-patterns.md) / [phased-approach.md](phased-approach.md)
 
 ## 方針

@@ -27,5 +27,5 @@ Phase 0（Coherence Score）と Phase 1（Telemetry Score）は LLM コストゼ
 - **既存変更**: `scripts/rl/fitness/environment.py`（3層ブレンド）, audit スキル（`--constitutional-score` オプション）
 - **LLM コスト**: Constitutional 評価 1回あたり原則数 × レイヤー数の LLM コール発生（Phase 0-1 と異なりコストゼロではない）
 - **依存**: Phase 0（coherence.py）+ Phase 1（telemetry.py）が実装・運用済みであること
-- **関連 Issue**: [#15](https://github.com/min-sys/rl-anything/issues/15)
+- **関連 Issue**: [#15](https://github.com/shohu/rl-anything/issues/15)
 - **Related**: #21

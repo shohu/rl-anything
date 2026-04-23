@@ -1,6 +1,6 @@
 # 調査知見 — 進化ループの文献サマリ
 
-> Source: [GitHub Issue #16](https://github.com/min-sys/rl-anything/issues/16) Parts 2, 6
+> Source: [GitHub Issue #16](https://github.com/shohu/rl-anything/issues/16) Parts 2, 6
 
 2024-2026 年の自己進化 AI エージェント、プロンプト最適化、自己修復システム、多目的最適化、および非 AI 分野（生物学、DevOps、ゲームバランス、組織学習、制御理論、群知能、コンパイラ理論、経済学、サイバネティクス）から、「ループを閉じる」メカニズムを調査した。
 

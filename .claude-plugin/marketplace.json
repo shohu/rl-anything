@@ -1,7 +1,7 @@
 {
   "name": "rl-anything",
   "owner": {
-    "name": "min-sys"
+    "name": "shohu"
   },
   "plugins": [
     {
@@ -10,10 +10,10 @@
       "description": "Automatic skill/rule optimization using direct LLM patches with fitness evaluation and human approval workflow",
       "version": "1.34.0",
       "author": {
-        "name": "min-sys"
+        "name": "shohu"
       },
-      "homepage": "https://github.com/min-sys/rl-anything",
-      "repository": "https://github.com/min-sys/rl-anything",
+      "homepage": "https://github.com/shohu/rl-anything",
+      "repository": "https://github.com/shohu/rl-anything",
       "license": "MIT",
       "keywords": ["optimization", "direct-patch", "skill-evolution", "rl-loop", "claude-code"],
       "category": "development"
