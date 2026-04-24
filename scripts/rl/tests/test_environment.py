@@ -289,7 +289,11 @@ class TestSkipLLM:
         # 軽量軸（coherence / telemetry）のみで overall が算出される
         assert "coherence" in result["sources"]
         assert "telemetry" in result["sources"]
-        assert result["overall"] > 0
+        # overall が constitutional を除いた normalize weight で正しく計算される
+        # （test_constitutional_unavailable_fallback_two_layer と同じロジック）
+        weights = environment._normalize_weights(["coherence", "telemetry"])
+        expected = round(0.8 * weights["coherence"] + 0.7 * weights["telemetry"], 4)
+        assert abs(result["overall"] - expected) < 0.01
 
     def test_skip_llm_false_default(self, tmp_path):
         """skip_llm 未指定（デフォルト False）時は constitutional が呼ばれる。
