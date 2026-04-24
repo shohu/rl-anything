@@ -34,7 +34,7 @@ basename "$(git rev-parse --show-toplevel 2>/dev/null)"
 
 - `--deep` フラグあり → **詳細モード**（Step 3b へ）
 - `--issue` フラグあり → **Issue モード**（Step 3c へ）
-- それ以外 → **コンパクトモード**（Step 3a へ）
+- `--file` フラグあり or それ以外 → **コンパクトモード**（Step 3a へ。`--file` あり時はファイルにも保存）
 
 ## Step 3a: コンパクトモード（デフォルト）
 
