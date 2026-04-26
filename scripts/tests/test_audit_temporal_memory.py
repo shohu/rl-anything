@@ -89,7 +89,7 @@ class TestBuildTemporalMemoryWarnings:
             json.dumps({
                 "session_id": "sess-abc",
                 "timestamp": "2026-01-15T10:23:00.000Z",
-                "reflect_status": "reflected",
+                "reflect_status": "applied",  # 実際に書き込まれる値
             }) + "\n",
             encoding="utf-8",
         )
@@ -117,7 +117,7 @@ class TestBuildTemporalMemoryWarnings:
             json.dumps({
                 "session_id": "sess-abc",
                 "timestamp": "2026-01-15T10:23:00.000Z",
-                "reflect_status": "pending",
+                "reflect_status": "pending",  # まだ reflect されていない
             }) + "\n",
             encoding="utf-8",
         )

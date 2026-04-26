@@ -17,7 +17,9 @@ import common
 # memory_temporal は scripts/lib にある（sys.path 経由でアクセス）
 _memory_temporal = None
 try:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts" / "lib"))
+    _scripts_lib = str(Path(__file__).resolve().parent.parent / "scripts" / "lib")
+    if _scripts_lib not in sys.path:
+        sys.path.insert(0, _scripts_lib)
     from memory_temporal import parse_memory_temporal, is_stale, is_superseded
     _memory_temporal = True
 except ImportError:

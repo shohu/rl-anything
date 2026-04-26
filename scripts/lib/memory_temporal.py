@@ -36,8 +36,8 @@ def parse_memory_temporal(filepath: Path) -> dict[str, Any]:
     result["valid_from"] = fm.get("valid_from", None)
     result["superseded_at"] = fm.get("superseded_at", None)
     decay = fm.get("decay_days", None)
-    # decay_days: 0 は null と同じ扱い（即時 stale でなく「期限なし」）
-    result["decay_days"] = decay if decay else None
+    # decay_days: 0 以下は null と同じ扱い（負値・ゼロは期限なし）
+    result["decay_days"] = decay if (isinstance(decay, int) and decay > 0) else None
     ids = fm.get("source_correction_ids", [])
     result["source_correction_ids"] = ids if isinstance(ids, list) else []
     return result
@@ -61,6 +61,8 @@ def is_stale(temporal: dict[str, Any]) -> bool:
         valid_from = datetime.fromisoformat(
             valid_from_str.replace("Z", "+00:00")
         )
+        if valid_from.tzinfo is None:
+            valid_from = valid_from.replace(tzinfo=timezone.utc)
         age_days = (datetime.now(timezone.utc) - valid_from).days
         return age_days > decay_days
     except (ValueError, TypeError):
@@ -77,6 +79,8 @@ def is_superseded(temporal: dict[str, Any]) -> bool:
         superseded_at = datetime.fromisoformat(
             superseded_at_str.replace("Z", "+00:00")
         )
+        if superseded_at.tzinfo is None:
+            superseded_at = superseded_at.replace(tzinfo=timezone.utc)
         return superseded_at < datetime.now(timezone.utc)
     except (ValueError, TypeError):
         return False

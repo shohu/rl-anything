@@ -547,7 +547,7 @@ def build_temporal_memory_warnings(
                     continue
                 try:
                     rec = json.loads(line)
-                    if rec.get("reflect_status") == "reflected":
+                    if rec.get("reflect_status") == "applied":
                         sid = rec.get("session_id", "")
                         ts = rec.get("timestamp", "")
                         if sid and ts:
