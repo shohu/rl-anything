@@ -437,6 +437,12 @@ def build_output(
         if c.get("line_limit_warning"):
             entry["line_limit_warning"] = c["line_limit_warning"]
 
+        # provenance: session_id#timestamp 複合キー（memory 書き込み時に source_correction_ids に使う）
+        sid = c.get("session_id", "")
+        ts = c.get("timestamp", "")
+        if sid and ts:
+            entry["source_correction_id"] = f"{sid}#{ts}"
+
         if apply_all:
             entry["apply"] = c.get("confidence", 0.5) >= min_confidence
 
