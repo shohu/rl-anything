@@ -83,6 +83,27 @@ class TestStaleMemoryFilter:
         captured = capsys.readouterr()
         assert "STALE MEMORY" not in captured.out
 
+    def test_memory_temporal_unavailable_no_output(self, tmp_path, capsys):
+        """_memory_temporal=None（ImportError 時）→ 出力なし、例外なし。"""
+        memory_dir = tmp_path / "memory"
+        memory_dir.mkdir()
+        (memory_dir / "stale.md").write_text(
+            "---\nname: stale\nsuperseded_at: '2020-01-01T00:00:00Z'\n---\n",
+            encoding="utf-8",
+        )
+        with mock.patch.object(instructions_loaded, "_memory_temporal", None):
+            instructions_loaded._emit_stale_memory_warnings(memory_dir)
+        captured = capsys.readouterr()
+        assert "STALE MEMORY" not in captured.out
+
+    def test_memory_dir_is_file_not_dir_no_output(self, tmp_path, capsys):
+        """memory_dir がディレクトリではなくファイル → 出力なし、例外なし。"""
+        not_a_dir = tmp_path / "memory.md"
+        not_a_dir.write_text("not a directory", encoding="utf-8")
+        instructions_loaded._emit_stale_memory_warnings(not_a_dir)
+        captured = capsys.readouterr()
+        assert "STALE MEMORY" not in captured.out
+
     def test_mixed_files_only_stale_warned(self, tmp_path, capsys):
         """有効と無効が混在 → stale のみ出力。"""
         memory_dir = tmp_path / "memory"

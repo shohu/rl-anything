@@ -53,6 +53,13 @@ class TestBuildTemporalMemoryWarnings:
         result = build_temporal_memory_warnings(memory_dir)
         assert result == []
 
+    def test_memory_dir_is_file_returns_empty(self, tmp_path):
+        """memory_dir がファイル（ディレクトリではない）→ 空リスト、例外なし。"""
+        not_a_dir = tmp_path / "memory.md"
+        not_a_dir.write_text("not a directory", encoding="utf-8")
+        result = build_temporal_memory_warnings(not_a_dir)
+        assert result == []
+
     def test_stale_by_decay_warns(self, tmp_path):
         """decay_days 超過 → STALE 警告あり。"""
         memory_dir = tmp_path / "memory"

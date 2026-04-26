@@ -551,7 +551,8 @@ def build_temporal_memory_warnings(
                         sid = rec.get("session_id", "")
                         ts = rec.get("timestamp", "")
                         if sid and ts:
-                            reflected_ids.add(f"{sid}#{ts}")
+                            from memory_temporal import make_source_correction_id
+                            reflected_ids.add(make_source_correction_id(sid, ts))
                 except json.JSONDecodeError:
                     pass
         except (OSError, UnicodeDecodeError):

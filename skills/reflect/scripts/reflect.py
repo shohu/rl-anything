@@ -19,6 +19,7 @@ _plugin_root = PLUGIN_ROOT
 sys.path.insert(0, str(PLUGIN_ROOT / "scripts"))
 sys.path.insert(0, str(PLUGIN_ROOT / "scripts" / "lib"))
 
+from memory_temporal import make_source_correction_id
 from reflect_utils import (
     read_all_memory_entries,
     read_auto_memory,
@@ -441,7 +442,7 @@ def build_output(
         sid = c.get("session_id", "")
         ts = c.get("timestamp", "")
         if sid and ts:
-            entry["source_correction_id"] = f"{sid}#{ts}"
+            entry["source_correction_id"] = make_source_correction_id(sid, ts)
 
         if apply_all:
             entry["apply"] = c.get("confidence", 0.5) >= min_confidence
